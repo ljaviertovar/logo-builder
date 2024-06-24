@@ -9,7 +9,7 @@ export default function Header() {
 				<img
 					src='/logo.svg'
 					alt='Logo Builder'
-					className='bg-amber-300 w-10 h-10 rounded-full mr-1'
+					className='bg-amber-500 w-10 h-10 rounded-full mr-1'
 				/>
 				<span className='text-2xl font-bold'>Logobuilder</span>
 			</div>
