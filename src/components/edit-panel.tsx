@@ -15,8 +15,7 @@ interface Props {
 
 export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed = false, navCollapsedSize }: Props) {
 	const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed)
-
-	console.log({ isCollapsed })
+	const [selectedOption, setSelectedOption] = useState('Icon')
 
 	return (
 		<TooltipProvider delayDuration={0}>
@@ -45,18 +44,17 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 				>
 					<Sidenav
 						isCollapsed={isCollapsed}
-						links={[
+						setSelectedOption={setSelectedOption}
+						options={[
 							{
 								id: 1,
 								title: 'Icon',
 								icon: PencilRuler,
-								variant: 'default',
 							},
 							{
 								id: 2,
 								title: 'Background',
 								icon: Image,
-								variant: 'secondary',
 							},
 						]}
 					/>

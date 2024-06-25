@@ -1,67 +1,94 @@
-import { LucideIcon } from 'lucide-react'
+import { useState } from 'react'
+
+import { Button } from './ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
-import { Button, buttonVariants } from './ui/button'
+
+import { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface Props {
 	isCollapsed: boolean
-	links: {
+	setSelectedOption: (value: string) => void
+	options: {
 		id: number
 		title: string
 		icon: LucideIcon
-		variant: 'default' | 'secondary'
 	}[]
 }
 
-export default function Sidenav({ isCollapsed, links }: Props) {
+export default function Sidenav({ isCollapsed, setSelectedOption, options }: Props) {
+	const [optionActive, setOptionActive] = useState<number>(options[0].id)
+
 	return (
 		<div
 			data-collapsed={isCollapsed}
-			className='group flex flex-col gap-4'
+			className='h-[calc(100%-80px)] flex flex-col justify-between gap-4'
 		>
 			<nav className='grid gap-2 p-4 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:p-4'>
-				{links.map(link =>
+				{options.map(option =>
 					isCollapsed ? (
 						<Tooltip
-							key={link.id}
+							key={option.id}
 							delayDuration={0}
 						>
 							<TooltipTrigger asChild>
 								<Button
+									onClick={() => {
+										setOptionActive(option.id)
+										setSelectedOption(option.title)
+									}}
+									variant={'secondary'}
+									size={'sm'}
 									className={cn(
-										buttonVariants({ variant: link.variant, size: 'sm' }),
 										'hover:bg-amber-500/90',
-										link.variant === 'default' && 'bg-amber-500 text-foreground',
+										optionActive === option.id && 'bg-amber-500 text-foreground',
 										'justify-start'
 									)}
 								>
-									<link.icon className='h-4 w-4' />
-									<span className='sr-only'>{link.title}</span>
+									<option.icon className='h-4 w-4' />
+									<span className='sr-only'>{option.title}</span>
 								</Button>
 							</TooltipTrigger>
 							<TooltipContent
 								side='right'
 								className='flex items-center gap-4'
 							>
-								{link.title}
+								{option.title}
 							</TooltipContent>
 						</Tooltip>
 					) : (
 						<Button
-							key={link.id}
+							key={option.id}
+							onClick={() => {
+								setOptionActive(option.id)
+								setSelectedOption(option.title)
+							}}
+							variant={'secondary'}
+							size={'sm'}
 							className={cn(
-								buttonVariants({ variant: link.variant, size: 'sm' }),
 								'hover:bg-amber-500/90',
-								link.variant === 'default' && 'bg-amber-500 text-foreground',
+								optionActive === option.id && 'bg-amber-500 text-foreground',
 								'justify-start'
 							)}
 						>
-							<link.icon className='mr-2 h-4 w-4' />
-							{link.title}
+							<option.icon className='mr-2 h-4 w-4' />
+							{option.title}
 						</Button>
 					)
 				)}
 			</nav>
+
+			<p className='p-4 text-sm text-muted-foreground'>
+				Application explained on{' '}
+				<a
+					href='https://hackernoon.com/u/ljaviertovar'
+					target='_blank'
+					rel='noreferrer'
+					className='text-primary font-medium underline'
+				>
+					Hackernoon
+				</a>
+			</p>
 		</div>
 	)
 }
