@@ -6,6 +6,9 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 import { Image, PencilRuler } from 'lucide-react'
 import { useState } from 'react'
+import Preview from './preview'
+import IconControls from './icon-controls'
+import BackgroundControls from './background-controls'
 
 interface Props {
 	defaultLayout: number[] | undefined
@@ -30,7 +33,7 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 					defaultSize={defaultLayout[0]}
 					collapsedSize={navCollapsedSize}
 					collapsible={true}
-					minSize={5}
+					minSize={8}
 					maxSize={15}
 					onCollapse={() => {
 						setIsCollapsed(true)
@@ -61,7 +64,11 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 				</ResizablePanel>
 				<ResizableHandle withHandle />
 				<ResizablePanel defaultSize={defaultLayout[1]}>
-					<main className='flex-1 p-4'>BODY</main>
+					<main className='w-full flex flex-col md:flex-row'>
+						{selectedOption === 'Icon' && <IconControls />}
+						{selectedOption === 'Background' && <BackgroundControls />}
+						<Preview />
+					</main>
 				</ResizablePanel>
 			</ResizablePanelGroup>
 		</TooltipProvider>

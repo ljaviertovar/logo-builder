@@ -10,7 +10,7 @@ export default function HomePage() {
 	const defaultCollapsed = collapsed ? JSON.parse(collapsed.value) : undefined
 
 	return (
-		<div className='hidden flex-col md:flex'>
+		<div className='flex flex-col'>
 			<EditPanel
 				defaultLayout={defaultLayout}
 				defaultCollapsed={defaultCollapsed}
