@@ -62,7 +62,10 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 						]}
 					/>
 				</ResizablePanel>
-				<ResizableHandle withHandle />
+				<ResizableHandle
+					withHandle
+					className='border-[1px]'
+				/>
 				<ResizablePanel defaultSize={defaultLayout[1]}>
 					<main className='w-full flex flex-col md:flex-row'>
 						{selectedOption === 'Icon' && <IconControls />}
