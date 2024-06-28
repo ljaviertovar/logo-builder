@@ -7,8 +7,8 @@ import { cn } from '@/lib/utils'
 import { Image, PencilRuler } from 'lucide-react'
 import { useState } from 'react'
 import Preview from './preview'
-import IconControls from './icon-controls'
-import BackgroundControls from './background-controls'
+import IconController from './icon-controller'
+import BackgroundController from './background-controller'
 
 interface Props {
 	defaultLayout: number[] | undefined
@@ -68,8 +68,8 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 				/>
 				<ResizablePanel defaultSize={defaultLayout[1]}>
 					<main className='w-full flex flex-col md:flex-row'>
-						{selectedOption === 'Icon' && <IconControls />}
-						{selectedOption === 'Background' && <BackgroundControls />}
+						{selectedOption === 'Icon' && <IconController />}
+						{selectedOption === 'Background' && <BackgroundController />}
 						<Preview />
 					</main>
 				</ResizablePanel>
