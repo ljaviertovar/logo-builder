@@ -16,7 +16,7 @@ interface Props {
 	}[]
 }
 
-export default function Sidenav({ isCollapsed, setSelectedOption, options }: Props) {
+export default function SideNav({ isCollapsed, setSelectedOption, options }: Props) {
 	const [optionActive, setOptionActive] = useState<number>(options[0].id)
 
 	return (
