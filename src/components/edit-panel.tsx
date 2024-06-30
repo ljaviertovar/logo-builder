@@ -14,6 +14,7 @@ import { Image, PencilRuler } from 'lucide-react'
 
 import { useDevice } from '@/hooks/useDevice'
 import { cn } from '@/lib/utils'
+import { useAppContext } from '@/context'
 
 interface Props {
 	defaultLayout: number[] | undefined
@@ -25,9 +26,9 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 	const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed)
 	const [selectedOption, setSelectedOption] = useState('Icon')
 
-	const { isMobile } = useDevice()
+	const { values, setValues } = useAppContext()
 
-	console.log('isMobile', isMobile)
+	const { isMobile } = useDevice()
 
 	return (
 		<>
@@ -51,7 +52,12 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 					<main className='w-full flex flex-col md:flex-row'>
 						{selectedOption === 'Icon' && <IconController />}
 						{selectedOption === 'Background' && <BackgroundController />}
-						<Preview />
+						<Preview
+							size={values.iconSize}
+							color={values.iconColor}
+							borderWidth={values.iconBorder}
+							rotate={values.iconRotate}
+						/>
 					</main>
 				</>
 			) : (
@@ -104,7 +110,12 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 							<main className='w-full flex flex-col md:flex-row'>
 								{selectedOption === 'Icon' && <IconController />}
 								{selectedOption === 'Background' && <BackgroundController />}
-								<Preview />
+								<Preview
+									size={values.iconSize}
+									color={values.iconColor}
+									borderWidth={values.iconBorder}
+									rotate={values.iconRotate}
+								/>
 							</main>
 						</ResizablePanel>
 					</ResizablePanelGroup>
