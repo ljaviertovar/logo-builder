@@ -1,7 +1,10 @@
 import { Metadata } from 'next'
 
 import { Inter } from 'next/font/google'
+
 import Header from '@/components/header'
+
+import { AppWrapper } from '@/context'
 
 import './globals.css'
 
@@ -21,7 +24,8 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={inter.className}>
 				<Header />
-				{children}
+
+				<AppWrapper>{children}</AppWrapper>
 			</body>
 		</html>
 	)

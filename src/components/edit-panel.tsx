@@ -68,7 +68,7 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 							collapsedSize={navCollapsedSize}
 							collapsible={true}
 							minSize={8}
-							maxSize={15}
+							maxSize={12}
 							onCollapse={() => {
 								setIsCollapsed(true)
 								document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(true)}`
