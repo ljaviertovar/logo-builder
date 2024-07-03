@@ -1,7 +1,7 @@
 import React from 'react'
 import IconsModal from './icons-modal'
 import { Slider } from '../ui/slider'
-import ColorPickerController from '../color-picker-controller'
+import ColorPickerController from './color-picker'
 import { useAppContext } from '@/context'
 
 export default function IconControls() {
@@ -37,15 +37,15 @@ export default function IconControls() {
 			<div className='space-y-2'>
 				<div className='w-full flex justify-between gap-4'>
 					<label className='font-semibold leading-none tracking-tight'>Border Width</label>
-					<span className='text-sm text-muted-foreground'>{values.iconBorder} px</span>
+					<span className='text-sm text-muted-foreground'>{values.iconBorderWidth} px</span>
 				</div>
 
 				<Slider
-					defaultValue={[values.iconBorder]}
+					defaultValue={[values.iconBorderWidth]}
 					min={1}
 					max={4}
 					step={1}
-					onValueChange={(value: any[]) => setValues({ ...values, iconBorder: value[0] })}
+					onValueChange={(value: any[]) => setValues({ ...values, iconBorderWidth: value[0] })}
 				/>
 			</div>
 

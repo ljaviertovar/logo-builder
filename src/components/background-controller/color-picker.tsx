@@ -11,20 +11,18 @@ interface Props {
 export default function ColorPickerController({ hidecontrols = true, hidepresets = true }: Props) {
 	const { values, setValues } = useAppContext()
 
-	const [color, setColor] = useState(values.iconColor)
+	const [color, setColor] = useState(values.bgColor)
 
 	useEffect(() => {
-		setValues({ ...values, iconColor: color })
+		setValues({ ...values, bgColor: color })
 	}, [color])
 
 	return (
-		<div className='flex '>
-			<ColorPicker
-				value={color}
-				onChange={setColor}
-				hideControls={hidecontrols}
-				hidePresets={hidepresets}
-			/>
-		</div>
+		<ColorPicker
+			value={color}
+			onChange={setColor}
+			hideControls={hidecontrols}
+			hidePresets={hidepresets}
+		/>
 	)
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 import { TooltipProvider } from '@/components/ui/tooltip'
@@ -30,6 +30,12 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 
 	const { isMobile } = useDevice()
 
+	useEffect(() => {
+		if (Object.keys(values).length) {
+			localStorage.setItem('logobuilder', JSON.stringify({ ...values }))
+		}
+	}, [values])
+
 	return (
 		<>
 			{isMobile ? (
@@ -52,12 +58,7 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 					<main className='w-full flex flex-col md:flex-row'>
 						{selectedOption === 'Icon' && <IconController />}
 						{selectedOption === 'Background' && <BackgroundController />}
-						<Preview
-							size={values.iconSize}
-							color={values.iconColor}
-							borderWidth={values.iconBorder}
-							rotate={values.iconRotate}
-						/>
+						<Preview />
 					</main>
 				</>
 			) : (
@@ -110,12 +111,7 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 							<main className='w-full flex flex-col md:flex-row'>
 								{selectedOption === 'Icon' && <IconController />}
 								{selectedOption === 'Background' && <BackgroundController />}
-								<Preview
-									size={values.iconSize}
-									color={values.iconColor}
-									borderWidth={values.iconBorder}
-									rotate={values.iconRotate}
-								/>
+								<Preview />
 							</main>
 						</ResizablePanel>
 					</ResizablePanelGroup>
