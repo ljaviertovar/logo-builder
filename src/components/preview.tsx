@@ -1,4 +1,4 @@
-import { icons } from 'lucide-react'
+import CustomIcon from './custom-icon'
 
 import { useAppContext } from '@/context'
 
@@ -7,20 +7,6 @@ import Styles from '../styles/patterns.module.css'
 export default function Preview() {
 	const { values } = useAppContext()
 	const { icon, iconSize, iconColor, iconBorderWidth, iconRotate, bgColor, bgRounded, bgPadding } = values
-
-	const Icon = ({ name, color, size, strokeWidth }: any) => {
-		const LucideIcon = icons[name]
-		if (!LucideIcon) return null
-
-		return (
-			<LucideIcon
-				size={size}
-				color={color}
-				strokeWidth={strokeWidth}
-				style={{ transform: `rotate(${iconRotate}deg)` }}
-			/>
-		)
-	}
 
 	return (
 		<div className={`flex-1 p-4  ${Styles.patternDotsMd}`}>
@@ -42,10 +28,11 @@ export default function Preview() {
 								padding: `${bgPadding}px`,
 							}}
 						>
-							<Icon
+							<CustomIcon
 								name={icon}
 								size={iconSize}
 								color={iconColor}
+								rotate={iconRotate}
 								strokeWidth={iconBorderWidth}
 							/>
 						</div>
