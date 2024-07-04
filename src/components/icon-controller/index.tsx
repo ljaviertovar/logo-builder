@@ -14,7 +14,7 @@ export default function IconControls() {
 			<div className='space-y-2'>
 				<div className='w-full flex justify-between gap-4'>
 					<label className='font-semibold leading-none tracking-tight'>Icon</label>
-					<span className='text-sm text-muted-foreground'>Icon Name</span>
+					<span className='text-sm text-muted-foreground'>{values.icon}</span>
 				</div>
 				<IconsModal />
 			</div>

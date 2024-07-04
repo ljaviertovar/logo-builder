@@ -1,4 +1,4 @@
-import CustomIcon from './custom-icon'
+import CustomIcon from './icon-controller/custom-icon'
 
 import { useAppContext } from '@/context'
 
@@ -12,7 +12,7 @@ export default function Preview() {
 		<div className={`flex-1 p-4  ${Styles.patternDotsMd}`}>
 			<div className='grid place-content-center h-full'>
 				<div
-					className='h-[500px] w-[500px] bg-white border'
+					className='h-[500px] w-[500px] bg-white border hover:border-gray-300'
 					style={{
 						padding: `${bgPadding}px`,
 					}}
