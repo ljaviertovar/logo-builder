@@ -1,76 +1,79 @@
-import React from 'react'
-import IconsModal from './icons-modal'
+import { ScrollArea } from '../ui/scroll-area'
 import { Slider } from '../ui/slider'
+import IconsModal from './icons-modal'
 import ColorPickerController from './color-picker'
+
 import { useAppContext } from '@/context'
 
 export default function IconControls() {
 	const { values, setValues } = useAppContext()
 
 	return (
-		<div className='p-4 w-full md:w-[340px] border-r-2 space-y-6 overflow-hidden overflow-y-auto h-[calc(100vh-80px)]'>
-			<h2 className='font-semibold tracking-tight text-xl'>Customize your Icon</h2>
+		<ScrollArea className='h-[calc(100vh-80px)]'>
+			<section className='p-4 w-full md:w-[340px] border-r-2 space-y-6 '>
+				<h2 className='font-semibold tracking-tight text-xl'>Customize your Icon</h2>
 
-			<div className='space-y-2'>
-				<div className='w-full flex justify-between gap-4'>
-					<label className='font-semibold leading-none tracking-tight'>Icon</label>
-					<span className='text-sm text-muted-foreground'>{values.icon}</span>
-				</div>
-				<IconsModal />
-			</div>
-
-			<div className='space-y-2'>
-				<div className='w-full flex justify-between gap-4'>
-					<label className='font-semibold leading-none tracking-tight'>Size</label>
-					<span className='text-sm text-muted-foreground'>{values.iconSize} px</span>
+				<div className='space-y-2'>
+					<div className='w-full flex justify-between gap-4'>
+						<label className='font-semibold leading-none tracking-tight'>Icon</label>
+						<span className='text-sm text-muted-foreground'>{values.icon}</span>
+					</div>
+					<IconsModal />
 				</div>
 
-				<Slider
-					defaultValue={[values.iconSize]}
-					min={40}
-					max={500}
-					step={1}
-					onValueChange={(value: any[]) => setValues({ ...values, iconSize: value[0] })}
-				/>
-			</div>
+				<div className='space-y-2'>
+					<div className='w-full flex justify-between gap-4'>
+						<label className='font-semibold leading-none tracking-tight'>Size</label>
+						<span className='text-sm text-muted-foreground'>{values.iconSize} px</span>
+					</div>
 
-			<div className='space-y-2'>
-				<div className='w-full flex justify-between gap-4'>
-					<label className='font-semibold leading-none tracking-tight'>Border Width</label>
-					<span className='text-sm text-muted-foreground'>{values.iconBorderWidth} px</span>
+					<Slider
+						defaultValue={[values.iconSize]}
+						min={40}
+						max={500}
+						step={1}
+						onValueChange={(value: any[]) => setValues({ ...values, iconSize: value[0] })}
+					/>
 				</div>
 
-				<Slider
-					defaultValue={[values.iconBorderWidth]}
-					min={1}
-					max={4}
-					step={1}
-					onValueChange={(value: any[]) => setValues({ ...values, iconBorderWidth: value[0] })}
-				/>
-			</div>
+				<div className='space-y-2'>
+					<div className='w-full flex justify-between gap-4'>
+						<label className='font-semibold leading-none tracking-tight'>Border Width</label>
+						<span className='text-sm text-muted-foreground'>{values.iconBorderWidth} px</span>
+					</div>
 
-			<div className='space-y-2'>
-				<div className='w-full flex justify-between gap-4'>
-					<label className='font-semibold leading-none tracking-tight'>Rotate</label>
-					<span className='text-sm text-muted-foreground'>{values.iconRotate} °</span>
+					<Slider
+						defaultValue={[values.iconBorderWidth]}
+						min={1}
+						max={4}
+						step={1}
+						onValueChange={(value: any[]) => setValues({ ...values, iconBorderWidth: value[0] })}
+					/>
 				</div>
 
-				<Slider
-					defaultValue={[values.iconRotate]}
-					min={-180}
-					max={180}
-					step={1}
-					onValueChange={(value: any[]) => setValues({ ...values, iconRotate: value[0] })}
-				/>
-			</div>
+				<div className='space-y-2'>
+					<div className='w-full flex justify-between gap-4'>
+						<label className='font-semibold leading-none tracking-tight'>Rotate</label>
+						<span className='text-sm text-muted-foreground'>{values.iconRotate} °</span>
+					</div>
 
-			<div className='space-y-2'>
-				<div className='w-full flex justify-between gap-4'>
-					<label className='font-semibold leading-none tracking-tight'>Color</label>
+					<Slider
+						defaultValue={[values.iconRotate]}
+						min={-180}
+						max={180}
+						step={1}
+						onValueChange={(value: any[]) => setValues({ ...values, iconRotate: value[0] })}
+					/>
 				</div>
 
-				<ColorPickerController />
-			</div>
-		</div>
+				<div className='space-y-2'>
+					<div className='w-full flex justify-between gap-4'>
+						<label className='font-semibold leading-none tracking-tight'>Color</label>
+					</div>
+
+					<ColorPickerController />
+				</div>
+			</section>
+		</ScrollArea>
 	)
 }

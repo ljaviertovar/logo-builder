@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '../ui/dialog'
 import { Button } from '../ui/button'
 
 import CustomIcon from './custom-icon'
@@ -16,18 +16,19 @@ export default function IconsModal() {
 
 	return (
 		<Dialog open={openDialog}>
-			<DialogTrigger asChild>
-				<Button
-					onClick={() => setOpenDialog(!openDialog)}
-					variant='secondary'
-					className='h-9 w-9 p-1 border shadow-lg'
-				>
-					<CustomIcon name={values.icon} />
-				</Button>
-			</DialogTrigger>
+			<Button
+				onClick={() => setOpenDialog(true)}
+				variant='secondary'
+				aria-label={values.icon}
+				className='h-9 w-9 p-1 border shadow-lg hover:bg-gray-300'
+			>
+				<CustomIcon name={values.icon} />
+			</Button>
+
 			<DialogContent className='sm:max-w-xl'>
 				<DialogHeader>
 					<DialogTitle>Select your icon</DialogTitle>
+					<DialogClose onClick={() => setOpenDialog(false)} />
 				</DialogHeader>
 				<ScrollArea className='h-[80vh]'>
 					<div className='grid grid-cols-6 gap-4 py-4'>
