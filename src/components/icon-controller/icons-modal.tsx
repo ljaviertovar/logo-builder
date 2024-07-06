@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '../ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '../ui/dialog'
 import { Button } from '../ui/button'
 
 import CustomIcon from './custom-icon'
@@ -8,6 +8,7 @@ import CustomIcon from './custom-icon'
 import { useAppContext } from '@/context'
 import { iconNames } from '@/constants/icons'
 import { ScrollArea } from '../ui/scroll-area'
+import IconList from './icon-list'
 
 export default function IconsModal() {
 	const [openDialog, setOpenDialog] = useState(false)
@@ -31,7 +32,7 @@ export default function IconsModal() {
 					<DialogClose onClick={() => setOpenDialog(false)} />
 				</DialogHeader>
 				<ScrollArea className='h-[80vh]'>
-					<div className='grid grid-cols-6 gap-4 py-4'>
+					{/* <div className='grid grid-cols-6 gap-4 py-4'>
 						{iconNames.map(icon => (
 							<Button
 								key={icon}
@@ -47,7 +48,8 @@ export default function IconsModal() {
 								<CustomIcon name={icon} />
 							</Button>
 						))}
-					</div>
+					</div> */}
+					<IconList setOpenDialog={setOpenDialog} />
 				</ScrollArea>
 			</DialogContent>
 		</Dialog>
