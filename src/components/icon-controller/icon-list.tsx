@@ -1,8 +1,11 @@
-import { iconNames } from '@/constants/icons'
 import { useCallback, useEffect, useRef, useState } from 'react'
+
 import { Button } from '../ui/button'
-import { useAppContext } from '@/context'
 import CustomIcon from './custom-icon'
+
+import { useAppContext } from '@/context'
+
+import { iconNames } from '@/constants/icons'
 
 interface Props {
 	setOpenDialog: (value: boolean) => void
@@ -30,8 +33,7 @@ export default function IconList({ setOpenDialog }: Props) {
 	)
 
 	useEffect(() => {
-		if (!iconNames.length) return
-		setVisibleIcons(iconNames.slice(0, 20))
+		if (iconNames.length) setVisibleIcons(iconNames.slice(0, 20))
 	}, [iconNames])
 
 	return (

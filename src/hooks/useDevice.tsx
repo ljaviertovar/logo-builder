@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export function useDevice() {
-	const [width, setWidth] = useState<number>(0)
+	const [width, setWidth] = useState<number | null>(null)
 
 	function handleWindowSizeChange() {
 		setWidth(window.innerWidth)
@@ -18,7 +18,7 @@ export function useDevice() {
 		}
 	}, [])
 
-	const isMobile = width <= 768
+	const isMobile = width ? width <= 768 : width
 
 	return { isMobile }
 }

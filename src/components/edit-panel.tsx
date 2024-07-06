@@ -36,32 +36,36 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 		}
 	}, [values])
 
+	console.log({ isMobile })
+
+	// if (isMobile === null) return
+
 	return (
 		<>
-			{isMobile ? (
-				<>
-					<MobileNav
-						setSelectedOption={setSelectedOption}
-						options={[
-							{
-								id: 1,
-								title: 'Icon',
-								icon: PencilRuler,
-							},
-							{
-								id: 2,
-								title: 'Background',
-								icon: Image,
-							},
-						]}
-					/>
-					<main className='w-full flex flex-col md:flex-row'>
-						{selectedOption === 'Icon' && <IconController />}
-						{selectedOption === 'Background' && <BackgroundController />}
-						<Preview />
-					</main>
-				</>
-			) : (
+			<div className='md:hidden'>
+				<MobileNav
+					setSelectedOption={setSelectedOption}
+					options={[
+						{
+							id: 1,
+							title: 'Icon',
+							icon: PencilRuler,
+						},
+						{
+							id: 2,
+							title: 'Background',
+							icon: Image,
+						},
+					]}
+				/>
+				<main className='w-full flex flex-col md:flex-row'>
+					{selectedOption === 'Icon' && <IconController />}
+					{selectedOption === 'Background' && <BackgroundController />}
+					<Preview />
+				</main>
+			</div>
+
+			<div className='hidden md:block'>
 				<TooltipProvider delayDuration={0}>
 					<ResizablePanelGroup
 						direction='horizontal'
@@ -116,7 +120,7 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 						</ResizablePanel>
 					</ResizablePanelGroup>
 				</TooltipProvider>
-			)}
+			</div>
 		</>
 	)
 }

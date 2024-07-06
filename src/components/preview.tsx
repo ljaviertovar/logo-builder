@@ -18,7 +18,9 @@ export default function Preview() {
 					}}
 				>
 					{!Object.keys(values).length ? (
-						<span>Loading</span>
+						<div className='animate-pulse flex justify-center items-center h-full w-full bg-gray-200'>
+							<div className='animate-pulse h-4/5 w-4/5  rounded-full bg-gray-300' />
+						</div>
 					) : (
 						<div
 							className='w-full h-full grid place-content-center'
