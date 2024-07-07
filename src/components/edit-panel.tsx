@@ -12,8 +12,8 @@ import SideNav from '@/components/side-nav'
 import Preview from './preview'
 import { Image, PencilRuler } from 'lucide-react'
 
-import { useDevice } from '@/hooks/useDevice'
 import { cn } from '@/lib/utils'
+
 import { useAppContext } from '@/context'
 
 interface Props {
@@ -26,19 +26,13 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 	const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed)
 	const [selectedOption, setSelectedOption] = useState('Icon')
 
-	const { values, setValues } = useAppContext()
-
-	const { isMobile } = useDevice()
+	const { values } = useAppContext()
 
 	useEffect(() => {
 		if (Object.keys(values).length) {
 			localStorage.setItem('logobuilder', JSON.stringify({ ...values }))
 		}
 	}, [values])
-
-	console.log({ isMobile })
-
-	// if (isMobile === null) return
 
 	return (
 		<>

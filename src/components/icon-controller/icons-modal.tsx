@@ -21,9 +21,9 @@ export default function IconsModal() {
 		>
 			<Button
 				onClick={() => setOpenDialog(true)}
-				variant='secondary'
+				variant='ghost'
 				aria-label={values.icon}
-				className='h-9 w-9 p-1 border shadow-lg hover:bg-gray-300'
+				className='h-9 w-9 p-1 border shadow-lg '
 			>
 				<CustomIcon name={values.icon} />
 			</Button>

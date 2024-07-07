@@ -48,8 +48,8 @@ export default function IconList({ setOpenDialog }: Props) {
 							<Button
 								title={icon}
 								aria-label={icon}
-								variant='secondary'
-								className='h-9 w-9 p-1 border shadow-lg hover:bg-gray-300'
+								variant='ghost'
+								className='h-9 w-9 p-1 border shadow-lg'
 								onClick={() => {
 									setValues({ ...values, icon })
 									setOpenDialog(false)
@@ -65,8 +65,8 @@ export default function IconList({ setOpenDialog }: Props) {
 							key={icon}
 							title={icon}
 							aria-label={icon}
-							variant='secondary'
-							className='h-9 w-9 p-1 border shadow-lg hover:bg-gray-300'
+							variant='ghost'
+							className='h-9 w-9 p-1 border shadow-lg'
 							onClick={() => {
 								setValues({ ...values, icon })
 								setOpenDialog(false)

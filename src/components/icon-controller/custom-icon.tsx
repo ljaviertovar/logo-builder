@@ -4,11 +4,10 @@ interface Props {
 	name: string
 	color?: string
 	size?: number
-	rotate?: number
 	strokeWidth?: number
 }
 
-export default function CustomIcon({ name, color = 'currentColor', size = 24, rotate = 0, strokeWidth = 1 }: Props) {
+export default function CustomIcon({ name, color = 'currentColor', size = 24, strokeWidth = 1 }: Props) {
 	const LucideIcon = icons[name]
 	if (!LucideIcon) return null
 
@@ -17,7 +16,6 @@ export default function CustomIcon({ name, color = 'currentColor', size = 24, ro
 			size={size}
 			color={color}
 			strokeWidth={strokeWidth}
-			style={{ transform: `rotate(${rotate}deg)` }}
 		/>
 	)
 }
