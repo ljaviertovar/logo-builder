@@ -28,6 +28,8 @@ export default function EditPanel({ defaultLayout = [20, 80], defaultCollapsed =
 
 	const { values } = useAppContext()
 
+	console.log(values)
+
 	useEffect(() => {
 		if (Object.keys(values).length) {
 			localStorage.setItem('logobuilder', JSON.stringify({ ...values }))

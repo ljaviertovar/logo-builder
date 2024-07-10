@@ -1,7 +1,7 @@
-import { useAppContext } from '@/context'
 import { useEffect, useState } from 'react'
-
 import ColorPicker from 'react-best-gradient-color-picker'
+
+import { useAppContext } from '@/context'
 
 interface Props {
 	hidecontrols?: boolean

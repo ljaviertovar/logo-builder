@@ -1,17 +1,15 @@
 import { useRef } from 'react'
 import html2canvas from 'html2canvas-pro'
+import { Download } from 'lucide-react'
 
+import { Button } from './ui/button'
 import CustomIcon from './icon-controller/custom-icon'
 
 import { useAppContext } from '@/context'
 
 import Styles from '../styles/patterns.module.css'
-import { Button } from './ui/button'
-import { Download } from 'lucide-react'
 
-interface Props {}
-
-export default function Preview({}: Props) {
+export default function Preview() {
 	const { values } = useAppContext()
 	const { icon, iconSize, iconColor, iconBorderWidth, iconRotate, bgColor, bgRounded, bgPadding } = values
 

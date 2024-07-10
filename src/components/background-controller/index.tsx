@@ -1,5 +1,6 @@
 import { ScrollArea } from '../ui/scroll-area'
 import { Slider } from '../ui/slider'
+
 import ColorPickerController from './color-picker'
 
 import { useAppContext } from '@/context'

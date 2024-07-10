@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { LucideIcon } from 'lucide-react'
 
 import { Button } from './ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
-import { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface Props {
