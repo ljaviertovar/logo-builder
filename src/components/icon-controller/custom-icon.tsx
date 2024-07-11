@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function CustomIcon({ name, color = 'currentColor', size = 24, strokeWidth = 1 }: Props) {
-	const LucideIcon = icons[name]
+	const LucideIcon = icons[name as keyof typeof icons]
 	if (!LucideIcon) return null
 
 	return (
