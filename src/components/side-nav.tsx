@@ -79,17 +79,30 @@ export default function SideNav({ isCollapsed, setSelectedOption, options }: Pro
 			</nav>
 
 			{!isCollapsed && (
-				<p className='p-4 text-sm text-muted-foreground'>
-					Application explained on{' '}
-					<a
-						href='https://hackernoon.com/u/ljaviertovar'
-						target='_blank'
-						rel='noreferrer'
-						className='text-primary font-medium underline'
-					>
-						Hackernoon
-					</a>
-				</p>
+				<div>
+					<p className='p-4 text-sm text-muted-foreground'>
+						Application explained on{' '}
+						<a
+							href='https://hackernoon.com/building-a-logo-creation-app-with-nextjs-shadcnui-and-lucide-react'
+							target='_blank'
+							rel='noreferrer'
+							className='text-primary font-medium underline'
+						>
+							Hackernoon
+						</a>
+					</p>
+					<p className='p-4 text-sm text-muted-foreground'>
+					Develop by {' '}
+						<a
+							href='https://www.ljaviertovar.dev/'
+							target='_blank'
+							rel='noreferrer'
+							className='text-primary font-medium underline'
+						>
+							L Javier Tovar
+						</a>
+					</p>
+				</div>
 			)}
 		</div>
 	)
