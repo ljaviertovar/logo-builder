@@ -24,3 +24,4 @@ pnpm run dev
 
 This project is explained in the following posts:
 
+🔗 [Building a Logo Creation App with Next.js, Shadcn/ui, and Lucide React](https://hackernoon.com/building-a-logo-creation-app-with-nextjs-shadcnui-and-lucide-react)
